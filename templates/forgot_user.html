@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+    <!-- Bootstrap CSS -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='css/styles.css') }}"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+
+    
+
+    <title>Forgot Password</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    {% if type!='' %}
+      <div class="message">
+          <div class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ msg }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      </div>
+    {% endif %}
+
+    <div class="container my-3">
+        <h1> Please Enter you registered UserName</h1><br>
+        <form action="/forgotPassword" method="POST">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Username</h5>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="text" class="form-control" id="username" rows="1" name="username" placeholder="Enter your Username"/>
+                </div>
+                <button class="btn btn-primary" id="userFrgtBtn" style="width: 30%;">Get Password</button>
+            </div>
+        </div>
+      </form>
+
+      <br>
+      <div class="buttonContainer">
+        <div class="innerDiv">
+          <a href="/" type="button" class="homeBtn">Go to Home</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
