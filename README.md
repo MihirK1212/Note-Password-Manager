@@ -6,9 +6,9 @@ Branch: Computer Science and Engineering <br />
 Year: Second Year <br />
 
 
-Languages : HTML,CSS,JavaScript, Python 
-Framework : Flask
-Database : SQLAlchemy
+Languages : HTML,CSS,JavaScript, Python <br />
+Framework : Flask <br />
+Database : SQLAlchemy <br />
 
 Usage Details:
 
@@ -26,6 +26,6 @@ Usage Details:
 
 4) The initial landing page is for Login or Sign Up purposes. For Sign Up, we require UserName and Password. After Signing up, make sure to login and set up a recovery email.
 
-5) After logging in successfully, user can Add and Delete notes. User can also update their recovery email
+5) After logging in successfully, user can Add and Delete notes. They can also filter notes according to their title and description. User can also update their recovery email
 
 6) In case user forgets their password, they can click on the 'Forgot Password' button. Then the user will be asked to enter their UserName after whcih the password will be sent to their recovery email.
