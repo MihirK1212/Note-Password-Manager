@@ -8,6 +8,7 @@ Year: Second Year
 Usage Details:
 
 1) Create a .env file in the Project folder and it should have the following content:
+
     SENDER_EMAIL = ""
     SENDER_PASSWORD = ""
     VERIFICATION_KEY = ""
