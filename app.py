@@ -14,6 +14,8 @@ from flask import Flask, request, url_for
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 from datetime import timedelta
+import urllib.request
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///NotesAndPasswordManager.db"
@@ -27,7 +29,6 @@ Session(app)
 def make_session_permanent():
     session.permanent = True
     app.permanent_session_lifetime = timedelta(minutes=20)
-
 
 senderEmail = os.getenv("SENDER_EMAIL")
 senderPassword = os.getenv("SENDER_PASSWORD")
@@ -106,6 +107,7 @@ def recover():
         server.login(senderEmail,senderPassword)
         SUBJECT = "Confirmation Email for Notes Manager"
         link = url_for('confirm_email', token=token, _external=True)
+        link = link+"123"
         TEXT = 'Your link is {}'.format(link)
         message = 'Subject: {}\n\n{}'.format(SUBJECT, TEXT)
         server.sendmail(senderEmail,newEmail,message)
@@ -113,6 +115,19 @@ def recover():
         return render_template('add_recovery.html',email='',type='success',msg=f'A verification email has been sent to {newEmail}')
     logUser = PasswordManager.query.filter_by(username=session['username']).first()
     return render_template('add_recovery.html',email = logUser.email,type='',msg='')
+
+
+@app.route('/confirmEmail',methods=['GET','POST'])
+def checkEmail():
+    if request.method=='POST':
+        link = request.form['link']
+        length = (len(link)) - 3
+        link = link[0:length]
+        try:
+           return redirect(link)
+        except:
+            return redirect('/recovery')
+    return render_template('add_recovery.html',email=session['email'],type='',msg='')
 
 @app.route('/confirm_email/<token>')
 def confirm_email(token):

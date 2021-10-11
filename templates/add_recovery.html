@@ -51,6 +51,20 @@
       </form>
 
       <br>
+
+      <form action="/confirmEmail" method="POST">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Enter link received in mail</h5>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="text" class="form-control" id="link" rows="1" name="link" placeholder="Paste Link Here"/>
+                </div>
+                <button class="btn btn-primary" id="userLinkBtn" style="width: 30%;">Submit</button>
+            </div>
+        </div>
+      </form>
+
+      <br>
       <div class="buttonContainer">
         <div class="innerDiv">
           <a href="/notesHome" type="button" class="homeBtn">Go to Home</a>
