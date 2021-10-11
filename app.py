@@ -138,8 +138,8 @@ def confirm_email(token):
         db.session.commit()
         session['email'] = newEmail
         return render_template('add_recovery.html',email = session['email'],type='success',msg='Email has been added successfully!')
-    except SignatureExpired:
-        return render_template('add_recovery.html',email=session['email'],type='danger',msg='Verification has Timed Out!')
+    except:
+        return render_template('add_recovery.html',email=session['email'],type='danger',msg='Invalid Verification')
     
 @app.route("/notesHome", methods=['GET','POST'])
 def display():
