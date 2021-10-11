@@ -7,11 +7,11 @@ Year: Second Year
 
 Usage Details:
 
-1) Create a .env file in the Project folder and it should have the following content:
+1) Create a .env file in the Project folder and it should have the following content:<br />
 
-    SENDER_EMAIL = ""
-    SENDER_PASSWORD = ""
-    VERIFICATION_KEY = ""
+    SENDER_EMAIL = ""<br />
+    SENDER_PASSWORD = ""<br />
+    VERIFICATION_KEY = ""<br />
     
     These are developer-specific settings for sending 'Confirmation' and 'Recovery' emails. SENDER_EMAIL should contain the email address which will be used to send the emails mentioned. SENDER_PASSWORD stores the password for SENDER_EMAIL. VERIFICATION_KEY is used for email-id confirmation and can be any string of your choice.
     
