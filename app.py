@@ -109,6 +109,7 @@ def recover():
         link = url_for('confirm_email', token=token, _external=True)
         link = link+"123"
         TEXT = 'Your link is {}'.format(link)
+        TEXT = TEXT + ' \nCopy and Paste this link into the website'
         message = 'Subject: {}\n\n{}'.format(SUBJECT, TEXT)
         server.sendmail(senderEmail,newEmail,message)
         server.quit()
