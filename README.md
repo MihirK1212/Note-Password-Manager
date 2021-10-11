@@ -1,9 +1,9 @@
 # Note-Password-Manager
-Submission for Programming Club Recruitment 2.0 Dev
-Name: Mihir Karandikar
-Roll No: 200001044
-Branch: Computer Science and Engineering
-Year: Second Year
+Submission for Programming Club Recruitment 2.0 Dev <br />
+Name: Mihir Karandikar <br />
+Roll No: 200001044 <br />
+Branch: Computer Science and Engineering <br />
+Year: Second Year <br />
 
 Usage Details:
 
