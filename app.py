@@ -112,7 +112,7 @@ def recover():
         message = 'Subject: {}\n\n{}'.format(SUBJECT, TEXT)
         server.sendmail(senderEmail,newEmail,message)
         server.quit()
-        return render_template('add_recovery.html',email='',type='success',msg=f'A verification email has been sent to {newEmail}')
+        return render_template('add_recovery.html',email=session['email'],type='success',msg=f'A verification email has been sent to {newEmail}')
     logUser = PasswordManager.query.filter_by(username=session['username']).first()
     return render_template('add_recovery.html',email = logUser.email,type='',msg='')
 
@@ -123,10 +123,13 @@ def checkEmail():
         link = request.form['link']
         length = (len(link)) - 3
         link = link[0:length]
-        try:
-           return redirect(link)
-        except:
-            return redirect('/recovery')
+        if link.startswith('http://127.0.0.1:8000/confirm_email/'):
+            try:
+                return redirect(link)
+            except:
+                return redirect('/recovery')
+        else:
+            return render_template('add_recovery.html',email=session['email'],type='danger',msg='Invalid Verification!')  
     return render_template('add_recovery.html',email=session['email'],type='',msg='')
 
 @app.route('/confirm_email/<token>')
