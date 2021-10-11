@@ -5,6 +5,11 @@ Roll No: 200001044 <br />
 Branch: Computer Science and Engineering <br />
 Year: Second Year <br />
 
+
+Languages : HTML,CSS,JavaScript, Python 
+Framework : Flask
+Database : SQLAlchemy
+
 Usage Details:
 
 1) Create a .env file in the Project folder and it should have the following content:<br />
